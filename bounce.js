@@ -10,7 +10,7 @@ window.addEventListener("touchmove", function(e){
   e.preventDefault();
 });
 
-var interval = window.setinterval(mainLoop, 17);
+var interval = window.setInterval(mainLoop, 17);
 
 function mainLoop(){
   c.fillStyle = "#000000";
