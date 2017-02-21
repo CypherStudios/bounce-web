@@ -1,5 +1,5 @@
 var canvi = document.getElementById("myCanvas");
-canvi.style.background = "black";
+canvi.style.background = "white";
 var c = canvi.getContext("2d");
 
 window.addEventListener("touchstart", function(e){
