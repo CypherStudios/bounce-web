@@ -1,5 +1,5 @@
 var canvi = document.getElementById("myCanvas");
-canvi.style.background = "white";
+canvi.style.background = "black";
 var c = canvi.getContext("2d");
 canvi.height = window.innerHeight;
 canvi.width = window.innerWidth;
