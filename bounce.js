@@ -44,8 +44,11 @@ function mainMenu(){//the main loop of the main menu
 
 function play(){
   c.fillStyle = "#FFFFFF";
-  c.fillRect(50, player1.y-30, 10, 60);
-  c.fillRect(canvi.width-50, player2.y-30, 10, 60);
+  c.font = "20px sans";
+  c.fillRect(50, player1.y-50, 10, 100);
+  c.fillText(60, 60, player1.y);
+  c.fillRect(canvi.width-50, player2.y-50, 10, 100);
+  c.fillText(canvi.width/2, 60, player2.y);
   var leftTotal = 0;
   var rightTotal = 0;
   var leftCount = 0;
