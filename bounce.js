@@ -63,8 +63,8 @@ function play(){
       rightCount++;
     }
   }
-  player1.y = leftTotal/leftCount;
-  player2.y = rightTotal/rightCount;
+  player1.y = leftCount>0?leftTotal/leftCount:player1.y;
+  player2.y = rightCount>0?rightTotal/rightCount:player2.y;
 }
 }
 
