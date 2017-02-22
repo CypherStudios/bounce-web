@@ -53,7 +53,7 @@ function play(){
       leftTotal += touchList[i].clientY;
       leftCount++;
     }else{
-      rightTotal += touchList[i].clientY
+      rightTotal += touchList[i].clientY;
       rightCount++;
     }
   }
