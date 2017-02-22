@@ -1,6 +1,8 @@
 var canvi = document.getElementById("myCanvas");
 canvi.style.background = "white";
 var c = canvi.getContext("2d");
+canvi.height = window.innerHeight;
+canvi.width = window.innerWidth;
 
 window.addEventListener("touchstart", function(e){
   e.preventDefault();
