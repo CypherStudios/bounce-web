@@ -8,13 +8,13 @@ var currentScreen = "play";
 var touchList = [];
 
 var player1 = {
-  score: 0;
-  y: 0;
+  score: 0,
+  y: 0,
 };
 
 var player2 = {
-  score: 0;
-  y: 0;
+  score: 0,
+  y: 0,
 };
 
 window.addEventListener("touchstart", function(e){
