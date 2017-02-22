@@ -49,6 +49,7 @@ function play(){
   c.fillText(player1.y, 60, 60);
   c.fillRect(canvi.width-50, player2.y-50, 10, 100);
   c.fillText(player2.y, canvi.width/2, 60);
+  if(touchList.length>0){
   var leftTotal = 0;
   var rightTotal = 0;
   var leftCount = 0;
@@ -64,6 +65,7 @@ function play(){
   }
   player1.y = leftTotal/leftCount;
   player2.y = rightTotal/rightCount;
+}
 }
 
 function mainLoop(){
