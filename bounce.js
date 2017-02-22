@@ -16,7 +16,7 @@ var interval = window.setInterval(mainLoop, 17);
 
 function mainLoop(){
   c.fillStyle = "#000000";
-  c.fillRect(0,0,500,500);
+  c.fillRect(0,0,canvi.width,canvi.height);
   c.fillStyle = "#FFFFFF";
   c.fillRect(20,20,50,50);
 }
