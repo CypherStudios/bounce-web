@@ -73,7 +73,6 @@ function play(){
   c.fill();
   c.fillRect(50, player1.y-50, 10, 100);
   c.fillText(player1.y, 60, 60);
-  //  c.fillText(ballDeltaY,canvi.width/2,60);
 
   c.fillRect(canvi.width-50, player2.y-50, 10, 100);
   c.fillText(player2.y, canvi.width/2, 60);
@@ -110,7 +109,6 @@ function play(){
  
     if(ballX+ballDeltaX>canvi.width-50){
       if(ballY+ballDeltaY<player2.y+50&&ballY+ballDeltaY>player2.y-50){
-       // ballDeltaY=player2.y-(-ballY)/5;
         ballDeltaX=-ballDeltaX;
       }
       else{
@@ -119,7 +117,6 @@ function play(){
     }
     if(ballX + ballDeltaX < 50){
       if(ballY+ballDeltaY<player1.y+50&&ballY+ballDeltaY>player1.y-50){
-             //   ballDeltaY=player2.y-(-ballY)/5;
 
         ballDeltaX=-ballDeltaX;
       }
