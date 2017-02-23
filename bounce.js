@@ -72,9 +72,9 @@ function play(){
   c.fillStyle="white";
   c.fill();
   c.fillRect(50, player1.y-50, 10, 100);
-  c.fillText(player1.y, 60, 60);
+  c.fillText(player1.score, 60, 60);
   c.fillRect(canvi.width-50, player2.y-50, 10, 100);
-  c.fillText(player2.y, canvi.width/2, 60);
+  c.fillText(player2.score, canvi.width/2, 60);
   if(touchList.length>0){
   var leftTotal = 0;
   var rightTotal = 0;
@@ -106,20 +106,24 @@ function play(){
     }
   }
  
-    if(ballX+ballDeltaX>canvi.width-50){
+    if(ballX+ballDeltaX>canvi.width-60){
       if(ballY+ballDeltaY<player2.y+50&&ballY+ballDeltaY>player2.y-50){
-        ballDeltaX=-ballDeltaX;
+        ballDeltaX *= -1.01;
+        ballDeltaY=(player2.y-ballY)/5;
       }
       else{
         ballX=canvi.width/2;
+        player1.score++;
       }
     }
-    if(ballX + ballDeltaX < 50){
+    if(ballX + ballDeltaX < 70){
       if(ballY+ballDeltaY<player1.y+50&&ballY+ballDeltaY>player1.y-50){
-        ballDeltaX=-ballDeltaX;
+        ballDeltaX *= -1.01;
+        ballDeltaY=(player1.y-ballY)/5;
       }
       else{
         ballX=canvi.width/2;
+        player2.score++;
       }
     }
     if(ballY + ballDeltaY > canvi.height || ballY + ballDeltaY < 0) {
