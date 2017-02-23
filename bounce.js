@@ -13,6 +13,8 @@ var ballX=canvi.width/2;
 var ballY=canvi.height/2;
 var ballDeltaX=6;
 var ballDeltaY=2;
+var keys = [];
+
 var player1 = {
   score: 0,
   y: 0,
@@ -36,6 +38,21 @@ window.addEventListener("touchmove", function(e){
 window.addEventListener("touchend", function(e){
   touchList = e.touches;
   e.preventDefault();
+});
+
+window.addEventListener("keydown", function(e){
+  keys[e.keyCode] = true;
+  e.preventDefault();
+});
+
+window.addEventListener("keyup", function(e){
+  keys[e.keyCode] = false;
+  e.preventDefault();
+});
+
+window.addEventListener("resize", function(e){
+  canvi.height = window.innerHeight;
+  canvi.width = window.innerWidth;
 });
 
 var interval = window.setInterval(mainLoop, 17);
@@ -75,11 +92,23 @@ function play(){
   player1.y = leftCount>0?leftTotal/leftCount:player1.y;
   player2.y = rightCount>0?rightTotal/rightCount:player2.y;
 }
+  else
+  {
+    if(keys[38]&&player2.y>0){
+      player2.y -= 5;
+    }else if(keys[40]&&player2.y<canvi.height){
+      player2.y += 5;
+    }
+    if(keys[87]&&player1.y>0){
+      player1.y -= 5;
+    }else if(keys[83]&&player1.y<canvi.height){
+      player1.y += 5;
+    }
+  }
  
     if(ballX+ballDeltaX>canvi.width-50){
       if(ballY+ballDeltaY<player2.y+50&&ballY+ballDeltaY>player2.y-50){
         ballDeltaX=-ballDeltaX;
-        c.fillText(canvi.width/2,100,"Bounce");
       }
       else{
         ballX=canvi.width/2;
@@ -88,9 +117,6 @@ function play(){
     if(ballX + ballDeltaX < 50){
       if(ballY+ballDeltaY<player1.y+50&&ballY+ballDeltaY>player1.y-50){
         ballDeltaX=-ballDeltaX;
-        
-        c.fillText(canvi.width/2,100,"Bounce");
-
       }
       else{
         ballX=canvi.width/2;
