@@ -1,5 +1,6 @@
 var indicator = document.getElementById("working");
 indicator.style.background = "red";
+indicator.textContent = "WORKING!!"
 var canvi = document.getElementById("myCanvas");
 canvi.height = window.innerHeight;
 canvi.width = window.innerWidth;
