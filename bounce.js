@@ -108,7 +108,7 @@ function play(){
  
     if(ballX+ballDeltaX>canvi.width-50){
       if(ballY+ballDeltaY<player2.y+50&&ballY+ballDeltaY>player2.y-50){
-        ballDeltaY=player2.y-ballY;
+        ballDeltaY=player2.y-(-ballY)/5;
         ballDeltaX=-ballDeltaX;
       }
       else{
@@ -117,7 +117,7 @@ function play(){
     }
     if(ballX + ballDeltaX < 50){
       if(ballY+ballDeltaY<player1.y+50&&ballY+ballDeltaY>player1.y-50){
-                ballDeltaY=player2.y-ballY;
+                ballDeltaY=player2.y-(-ballY)/5;
 
         ballDeltaX=-ballDeltaX;
       }
