@@ -73,7 +73,7 @@ function play(){
   c.fill();
   c.fillRect(50, player1.y-50, 10, 100);
   c.fillText(player1.y, 60, 60);
-    c.fillText(ballDeltaY,canvi.width/2,120);
+    c.fillText(ballDeltaY,canvi.width/2,60);
 
   c.fillRect(canvi.width-50, player2.y-50, 10, 100);
   c.fillText(player2.y, canvi.width/2, 60);
