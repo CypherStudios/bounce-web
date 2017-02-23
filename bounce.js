@@ -77,7 +77,7 @@ function play(){
 }
  
     if(ballX+ballDeltaX>canvi.width-50){
-      if(ballY+ballDeltaY>player2.y&&(ballY+ballDeltaY<player2.y+50||ballY+ballDeltaY>player2.y+50)){
+      if(ballY+ballDeltaY<player2.y&&ballY+ballDeltaY>player2.y-50){
         ballDeltaX=-ballDeltaX;
         c.fillText(canvi.width/2,100,"Bounce");
       }
@@ -86,7 +86,7 @@ function play(){
       }
     }
     if(ballX + ballDeltaX < 50){
-      if(ballY+ballDeltaY>player1.y&&(ballY+ballDeltaY<player1.y+50||ballY+ballDeltaY>player1.y+50)){
+      if(ballY+ballDeltaY<player1.y&&(ballY+ballDeltaY>player1.y-50){
         ballDeltaX=-ballDeltaX;
         
         c.fillText(canvi.width/2,100,"Bounce");
