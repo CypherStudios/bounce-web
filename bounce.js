@@ -8,7 +8,11 @@ var c = canvi.getContext("2d");
 
 var currentScreen = "play";
 var touchList = [];
-
+var ballRadius=10;
+var ballX=canvi.width/2;
+var ballY=canvi.height/2+250;
+var ballDeltaX=6;
+var ballDeltaY=2;
 var player1 = {
   score: 0,
   y: 0,
@@ -45,6 +49,11 @@ function mainMenu(){//the main loop of the main menu
 function play(){
   c.fillStyle = "#FFFFFF";
   c.font = "20px sans";
+  c.beginPath();
+  c.arc(ballX,ballY,ballRadius,0,2*Math.PI);
+  c.closePath();
+  c.fillStyle="white";
+  c.fill();
   c.fillRect(50, player1.y-50, 10, 100);
   c.fillText(player1.y, 60, 60);
   c.fillRect(canvi.width-50, player2.y-50, 10, 100);
@@ -66,6 +75,32 @@ function play(){
   player1.y = leftCount>0?leftTotal/leftCount:player1.y;
   player2.y = rightCount>0?rightTotal/rightCount:player2.y;
 }
+ 
+    if(ballX+ballDeltaX>canvi.width-50){
+      if(ballY+ballDeltaY>player2.y&&ballY+ballDeltaY<player2.y+50){
+        ballDeltaX=-ballDeltaX;
+        c.fillText(canvi.width/2,100,"Bounce");
+      }
+      else{
+        ballX=canvi.width/2;
+      }
+    }
+    if(ballX + ballDeltaX < 50){
+      if(ballY+ballDeltaY>player1.y&&ballY+ballDeltaY<player1.y+50){
+        ballDeltaX=-ballDeltaX;
+        
+        c.fillText(canvi.width/2,100,"Bounce");
+
+      }
+      else{
+        ballX=canvi.width/2;
+      }
+    }
+    if(ballY + ballDeltaY > canvi.height || ballY + ballDeltaY < 0) {
+        ballDeltaY = -ballDeltaY;
+    }
+ballX+=ballDeltaX;
+ballY+=ballDeltaY;
 }
 
 function mainLoop(){
