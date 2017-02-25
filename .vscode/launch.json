@@ -5,19 +5,10 @@
     "version": "0.2.0",
     "configurations": [
        {
-           "type": "chrome",
-           "request": "launch",
-           "name": "Launch Chrome UsrDataDir",
-           "url": "http://localhost:8080/",
-           "webRoot": "${workspaceRoot}",
-           "userDataDir": "${workspaceRoot}/.vscode/chrome"
-       },
-        {
-            "type": "chrome",
+            "type": "edge",
             "request": "launch",
-            "name": "Launch Chrome",
-            "url": "http://localhost:8080/",
-            "webRoot": "${workspaceRoot}"
+            "name": "Launch index.html in Edge",
+            "file": "${workspaceRoot}/index.html"
         },
         {
             "type": "firefox",
