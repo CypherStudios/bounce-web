@@ -112,8 +112,8 @@ function play(){
         //ballDeltaX *= -1.01;
         
         ballDeltaY=(player2.y-ballY)/-5;
-        speed*=-1.01
-        ballDeltaX=speed-ballDeltaY
+        speed*=-1.2
+        ballDeltaX=speed-Math.abs(ballDeltaY)
       }
       else{
         ballX=canvi.width/2;
@@ -126,7 +126,7 @@ function play(){
         //ballDeltaX *= -1.01;
         ballDeltaY=(player1.y-ballY)/-5;
         speed*=-1.01
-        ballDeltaX=speed-ballDeltaY
+        ballDeltaX=speed-Math.abs(ballDeltaY)
       }
       else{
         ballX=canvi.width/2;
