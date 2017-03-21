@@ -96,14 +96,14 @@ function play(){
   else
   {
     if(keys[38]&&player2.y>0){
-      player2.y -= 5;
+      player2.y -= 10;
     }else if(keys[40]&&player2.y<canvi.height){
-      player2.y += 5;
+      player2.y += 10;
     }
     if(keys[87]&&player1.y>0){
-      player1.y -= 5;
+      player1.y -= 10;
     }else if(keys[83]&&player1.y<canvi.height){
-      player1.y += 5;
+      player1.y += 10;
     }
   }
  
