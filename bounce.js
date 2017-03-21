@@ -6,7 +6,6 @@ canvi.height = window.innerHeight;
 canvi.width = window.innerWidth;
 var c = canvi.getContext("2d");
 
-var speed=10;
 var currentScreen = "play";
 var touchList = [];
 var ballRadius=10;
@@ -109,11 +108,9 @@ function play(){
  
     if(ballX+ballDeltaX>canvi.width-60){
       if(ballY+ballDeltaY<player2.y+50+ballRadius&&ballY+ballDeltaY>player2.y-50-ballRadius){
-        //ballDeltaX *= -1.01;
+        ballDeltaX *= -1.01;
         
         ballDeltaY=(player2.y-ballY)/-5;
-        speed*=-1.01
-        ballDeltaX=speed+Math.abs(ballDeltaY)
       }
       else{
         ballX=canvi.width/2;
@@ -123,10 +120,8 @@ function play(){
     }
     if(ballX + ballDeltaX < 70){
       if(ballY+ballDeltaY<player1.y+50+ballRadius&&ballY+ballDeltaY>player1.y-50-ballRadius){
-        //ballDeltaX *= -1.01;
+        ballDeltaX *= -1.01;
         ballDeltaY=(player1.y-ballY)/-5;
-        speed*=-1.01
-        ballDeltaX=speed-Math.abs(ballDeltaY)
       }
       else{
         ballX=canvi.width/2;
