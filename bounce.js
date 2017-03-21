@@ -6,7 +6,7 @@ canvi.height = window.innerHeight;
 canvi.width = window.innerWidth;
 var c = canvi.getContext("2d");
 
-var speed=8;
+var speed=20;
 var currentScreen = "play";
 var touchList = [];
 var ballRadius=10;
