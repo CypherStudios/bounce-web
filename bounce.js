@@ -27,6 +27,7 @@ var player2 = {
   y: 0,
   paddleLength: 100,
 };
+
 var bomb = {
 	x: 0,
 	y: 0,
@@ -239,19 +240,47 @@ function play(){
     }
 	ballX+=ballDeltaX;//move the ball by its velocity vector
 	ballY+=ballDeltaY;
+	
+	//WINNING BY SCORE
+	if(player1.score >= 21){
+		currentScreen = "2lost";
+	}
+	if(player2.score >= 21){
+		currentScreen = "1lost";
+	}
+	
+	//WINNING BY EXPLOSIONS
+	if(player1.paddleLength <= 0){
+		currentScreen = "1lost";
+	}
+	if(player2.paddleLength <= 0){
+		currentScreen = "2lost";
+	}
+}
+
+function lost(player){
+	c.fillStyle = "#FFFFFF";
+	c.font = "60px sans";
+	c.fillText("PLAYER "+player+" LOST! Congrats to player "+((player)%2+1)+"!", 100,100);
 }
 
 function mainLoop(){
-  c.fillStyle = "#000000";
-  c.fillRect(0,0,canvi.width,canvi.height);
-  //c.fillStyle = "#FFFFFF";
-  //c.fillRect(20,20,50,50);
-  switch(currentScreen){
-    case "mainMenu":
-      mainMenu();
-      break;
-    case "play":
-      play();
-      break;
+	c.fillStyle = "#000000";
+	c.fillRect(0,0,canvi.width,canvi.height);
+	//c.fillStyle = "#FFFFFF";
+	//c.fillRect(20,20,50,50);
+	switch(currentScreen){
+		case "mainMenu":
+			mainMenu();
+			break;
+		case "play":
+			play();
+			break;
+		case "1lost":
+			lost(1);
+			break;
+		case "2lost":
+			lost(2);
+			break;
   }
 }
