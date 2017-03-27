@@ -5,8 +5,8 @@ var canvi = document.getElementById("myCanvas");
 canvi.height = window.innerHeight;
 canvi.width = window.innerWidth;
 var c = canvi.getContext("2d");
-
-
+var speed=12;
+var speedMult=1;
 var currentScreen = "play";
 var touchList = [];
 var ballRadius=10;
@@ -15,7 +15,7 @@ var ballY=canvi.height/2;
 var ballDeltaX=6;
 var ballDeltaY=2;
 var keys = [];
-
+var currentSpeed;
 var player1 = {
   score: 0,
   y: 0,
@@ -215,8 +215,14 @@ function play(){
  
     if(ballX+ballDeltaX>canvi.width-60){//bouncing off of player2's paddle
 		if(ballY+ballDeltaY<player2.y+player2.paddleLength/2+ballRadius&&ballY+ballDeltaY>player2.y-player2.paddleLength/2-ballRadius){
-			ballDeltaX *= -1.01;
 			ballDeltaY=(player2.y-ballY)/-5;
+
+			ballDeltaX=speed-Math.abs(ballDeltaY)
+			ballDeltaX *= -1;
+			ballDeltaX*=speedMult;
+			ballDeltaY*=speedMult;
+			speedMult*=1.005;
+
 		}
 		else{//scoring for player1
 			ballX=canvi.width/2;
@@ -226,8 +232,14 @@ function play(){
     }
     if(ballX + ballDeltaX < 70){//bouncing off of player1's paddle
 		if(ballY+ballDeltaY<player1.y+player1.paddleLength/2+ballRadius&&ballY+ballDeltaY>player1.y-player1.paddleLength/2-ballRadius){
-			ballDeltaX *= -1.01;
 			ballDeltaY=(player1.y-ballY)/-5;
+
+			ballDeltaX=speed-Math.abs(ballDeltaY);
+			ballDeltaY*=speedMult;
+			ballDeltaX*=speedMult;
+			
+			speedMult*=1.005;	
+			//ballDeltaX *= -1;
 		}
 		else{//scoring for player2
 			ballX=canvi.width/2;
@@ -265,6 +277,7 @@ function lost(player){
 }
 
 function mainLoop(){
+	currentSpeed=ballDeltaX+ballDeltaY;
 	c.fillStyle = "#000000";
 	c.fillRect(0,0,canvi.width,canvi.height);
 	//c.fillStyle = "#FFFFFF";

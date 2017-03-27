@@ -4,6 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Launch Chrome",
+        "url": "file:///Users/noahbritt/GitHub/bounce-web/index.html",
+        "webRoot": "${workspaceRoot}"
+    },
        {
             "type": "edge",
             "request": "launch",
@@ -13,7 +20,7 @@
         {
             "type": "firefox",
             "request": "launch",
-            "name": "Launch index.html in Firefox",
+            "name": "Launch insdex.html in Firefox",
             "file": "${workspaceRoot}/index.html"
         },
         {
