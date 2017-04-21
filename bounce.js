@@ -5,16 +5,16 @@ var canvi = document.getElementById("myCanvas");
 canvi.height = window.innerHeight;
 canvi.width = window.innerWidth;
 var c = canvi.getContext("2d");
-var speed=12;
+var speed=8;
 var speedMult=1;
-var ballAngle = 0;
+var ballAngle = 45;
 var currentScreen = "play";
 var touchList = [];
 var ballRadius=10;
 var ballX=canvi.width/2;
 var ballY=canvi.height/2;
-var ballDeltaX=6;
-var ballDeltaY=2;
+var ballDeltaY=speed*Math.sin(ballAngle*(Math.PI/180));
+var ballDeltaX=speed*Math.cos(ballAngle*(Math.PI/180));
 var keys = [];
 var currentSpeed;
 var player1 = {
@@ -226,7 +226,10 @@ function play(){
 		else{//scoring for player1
 			ballX=canvi.width/2;
 			player1.score++;
-			ballDeltaX = 6*(ballDeltaX/Math.abs(ballDeltaX));
+			speed = 8;
+			ballAngle = -45;
+			ballDeltaY=speed*Math.sin(ballAngle*(Math.PI/180));
+			ballDeltaX=speed*Math.cos(ballAngle*(Math.PI/180));
 		}
     }
     if(ballX + ballDeltaX < 70){//bouncing off of player1's paddle
@@ -241,7 +244,10 @@ function play(){
 		else{//scoring for player2
 			ballX=canvi.width/2;
 			player2.score++;
-			ballDeltaX = 6*(ballDeltaX/Math.abs(ballDeltaX));
+			speed = 8;
+			ballAngle = 45;
+			ballDeltaY=speed*Math.sin(ballAngle*(Math.PI/180));
+			ballDeltaX=speed*Math.cos(ballAngle*(Math.PI/180));
 		}
     }
     if(ballY + ballDeltaY > canvi.height || ballY + ballDeltaY < 0) {//bouncing off of the top and bottom
