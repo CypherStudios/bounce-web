@@ -7,6 +7,7 @@ canvi.width = window.innerWidth;
 var c = canvi.getContext("2d");
 var speed=12;
 var speedMult=1;
+var ballAngle = 0;
 var currentScreen = "play";
 var touchList = [];
 var ballRadius=10;
@@ -215,13 +216,12 @@ function play(){
  
     if(ballX+ballDeltaX>canvi.width-60){//bouncing off of player2's paddle
 		if(ballY+ballDeltaY<player2.y+player2.paddleLength/2+ballRadius&&ballY+ballDeltaY>player2.y-player2.paddleLength/2-ballRadius){
-			ballDeltaY=(player2.y-ballY)/-5;
-
-			ballDeltaX=speed-Math.abs(ballDeltaY)
+			ballAngle=(player2.y-ballY)
+                        ballDeltaY=speed*Math.sin(ballAngle*(Math.PI/180));
+			ballDeltaX=speed*Math.cos(ballAngle*(Math.PI/180));
 			ballDeltaX *= -1;
-			ballDeltaX*=speedMult;
-			ballDeltaY*=speedMult;
-			speedMult*=1.005;
+			speed *= speedMult;
+			speedMult+=0.005;
 
 		}
 		else{//scoring for player1
@@ -232,13 +232,11 @@ function play(){
     }
     if(ballX + ballDeltaX < 70){//bouncing off of player1's paddle
 		if(ballY+ballDeltaY<player1.y+player1.paddleLength/2+ballRadius&&ballY+ballDeltaY>player1.y-player1.paddleLength/2-ballRadius){
-			ballDeltaY=(player1.y-ballY)/-5;
-
-			ballDeltaX=speed-Math.abs(ballDeltaY);
-			ballDeltaY*=speedMult;
-			ballDeltaX*=speedMult;
-			
-			speedMult*=1.005;	
+			ballAngle=(player1.y-ballY)
+			ballDeltaY=speed*Math.sin(ballAngle*(Math.PI/180));
+			ballDeltaX=speed*Math.cos(ballAngle*(Math.PI/180));//the thing with pi converts the angle (in degrees) to radians for the function
+			speed *= speedMult;
+			speedMult += 0.005;	
 			//ballDeltaX *= -1;
 		}
 		else{//scoring for player2
