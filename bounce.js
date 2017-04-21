@@ -216,7 +216,7 @@ function play(){
  
     if(ballX+ballDeltaX>canvi.width-60){//bouncing off of player2's paddle
 		if(ballY+ballDeltaY<player2.y+player2.paddleLength/2+ballRadius&&ballY+ballDeltaY>player2.y-player2.paddleLength/2-ballRadius){
-			speed *= speedMult;
+			speed += speedMult;
 			speedMult+=0.005;
 			ballAngle=-(player2.y-ballY)
                         ballDeltaY=speed*Math.sin(ballAngle*(Math.PI/180));
@@ -234,7 +234,7 @@ function play(){
     }
     if(ballX + ballDeltaX < 70){//bouncing off of player1's paddle
 		if(ballY+ballDeltaY<player1.y+player1.paddleLength/2+ballRadius&&ballY+ballDeltaY>player1.y-player1.paddleLength/2-ballRadius){
-			speed *= speedMult;
+			speed += speedMult;
 			speedMult += 0.005;
 			ballAngle=-(player1.y-ballY)
 			ballDeltaY=speed*Math.sin(ballAngle*(Math.PI/180));
