@@ -227,7 +227,7 @@ function play(){
 			ballX=canvi.width/2;
 			player1.score++;
 			speed = 8;
-			ballAngle = -45;
+			ballAngle = 135;
 			ballDeltaY=speed*Math.sin(ballAngle*(Math.PI/180));
 			ballDeltaX=speed*Math.cos(ballAngle*(Math.PI/180));
 		}
