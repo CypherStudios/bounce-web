@@ -216,13 +216,12 @@ function play(){
  
     if(ballX+ballDeltaX>canvi.width-60){//bouncing off of player2's paddle
 		if(ballY+ballDeltaY<player2.y+player2.paddleLength/2+ballRadius&&ballY+ballDeltaY>player2.y-player2.paddleLength/2-ballRadius){
-			ballAngle=(player2.y-ballY)
+			speed *= speedMult;
+			speedMult+=0.005;
+			ballAngle=-(player2.y-ballY)
                         ballDeltaY=speed*Math.sin(ballAngle*(Math.PI/180));
 			ballDeltaX=speed*Math.cos(ballAngle*(Math.PI/180));
 			ballDeltaX *= -1;
-			speed *= speedMult;
-			speedMult+=0.005;
-
 		}
 		else{//scoring for player1
 			ballX=canvi.width/2;
@@ -232,11 +231,11 @@ function play(){
     }
     if(ballX + ballDeltaX < 70){//bouncing off of player1's paddle
 		if(ballY+ballDeltaY<player1.y+player1.paddleLength/2+ballRadius&&ballY+ballDeltaY>player1.y-player1.paddleLength/2-ballRadius){
-			ballAngle=(player1.y-ballY)
-			ballDeltaY=speed*Math.sin(ballAngle*(Math.PI/180));
-			ballDeltaX=speed*Math.cos(ballAngle*(Math.PI/180));//the thing with pi converts the angle (in degrees) to radians for the function
 			speed *= speedMult;
-			speedMult += 0.005;	
+			speedMult += 0.005;
+			ballAngle=-(player1.y-ballY)
+			ballDeltaY=speed*Math.sin(ballAngle*(Math.PI/180));
+			ballDeltaX=speed*Math.cos(ballAngle*(Math.PI/180));//the thing with pi converts the angle (in degrees) to radians for the function			
 			//ballDeltaX *= -1;
 		}
 		else{//scoring for player2
